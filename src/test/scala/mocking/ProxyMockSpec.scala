@@ -11,7 +11,7 @@ class ProxyMockSpec extends FlatSpec with MockFactory with Matchers {
 
   behavior of "AccountService with mocks"
 
-  it should "mock a Trait" in {
+  it should "mock a Trait" taggedAs (Slow) in {
     val mocked = mock[AccountService]
 
     val customerId = UUID.randomUUID()
@@ -23,7 +23,7 @@ class ProxyMockSpec extends FlatSpec with MockFactory with Matchers {
     mocked.openDepositAccount(customerId, productId, tenDollars)
   }
 
-  it should "return a mocked value" in {
+  it should "return a mocked value" taggedAs (Fast) in {
     val mocked = mock[AccountService]
 
     val customerId = UUID.randomUUID()
